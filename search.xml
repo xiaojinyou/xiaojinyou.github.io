@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[利用python开发app实战]]></title>
+    <url>%2F2019%2F02%2F23%2Fpython%E5%BC%80%E5%8F%91app%E5%AE%9E%E6%88%98%2F</url>
+    <content type="text"><![CDATA[优秀的人，不是不合群，而是他们合群的人里面没有你 我很早之前就想开发一款app玩玩，无奈对java不够熟悉，之前也没有开发app的经验，因此一直耽搁了。最近想到尝试用python开发一款app，google搜索了一番后，发现确实有路可寻，目前也有了一些相对成熟的模块，于是便开始了动手实战，过程中发现这其中有很多坑，好在最终依靠google解决了，因此小记一番。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[title]]></title>
     <url>%2F2019%2F01%2F11%2Ftitle%2F</url>
     <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F01%2F10%2Fhello-world%2F</url>
-    <content type="text"></content>
+      <tags>
+        <tag>categories</tag>
+      </tags>
   </entry>
 </search>

@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A000A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小金" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  我很早之前就想开发一款app玩玩，无奈对java不够熟悉，之前也没有开发app的经验，因此一直耽搁了。最近想到尝试用python开发一款app，google搜索了一番后，发现确实有路可寻，目前也有了一些相对成熟的模块，于是便开始了动手实战，过程中发现这其中有很多坑，好在最终依靠google解决了，因此小记一番。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用python开发app实战">
+<meta property="og:url" content="http://yoursite.com/2019/02/23/python开发app实战/index.html">
+<meta property="og:site_name" content="小金">
+<meta property="og:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  我很早之前就想开发一款app玩玩，无奈对java不够熟悉，之前也没有开发app的经验，因此一直耽搁了。最近想到尝试用python开发一款app，google搜索了一番后，发现确实有路可寻，目前也有了一些相对成熟的模块，于是便开始了动手实战，过程中发现这其中有很多坑，好在最终依靠google解决了，因此小记一番。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/python1.png">
+<meta property="og:image" content="http://yoursite.com/images/python2.png/">
+<meta property="og:image" content="http://yoursite.com/images/python3.png">
+<meta property="og:image" content="http://yoursite.com/images/python4.png">
+<meta property="og:image" content="http://yoursite.com/images/python5.png">
+<meta property="og:image" content="http://yoursite.com/images/python6.png">
+<meta property="og:updated_time" content="2019-02-23T08:33:14.804Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用python开发app实战">
+<meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  我很早之前就想开发一款app玩玩，无奈对java不够熟悉，之前也没有开发app的经验，因此一直耽搁了。最近想到尝试用python开发一款app，google搜索了一番后，发现确实有路可寻，目前也有了一些相对成熟的模块，于是便开始了动手实战，过程中发现这其中有很多坑，好在最终依靠google解决了，因此小记一番。">
+<meta name="twitter:image" content="http://yoursite.com/images/python1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/23/python开发app实战/">
+
+
+
+
+
+  <title>利用python开发app实战 | 小金</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+
+
+
+
+
+
+
+
+    <a href="https://github.com/settings/profile" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小金</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/python开发app实战/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小金">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/图.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小金">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用python开发app实战</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T13:09:52+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+
+<p>我很早之前就想开发一款app玩玩，无奈对java不够熟悉，之前也没有开发app的经验，因此一直耽搁了。最近想到尝试用python开发一款app，google搜索了一番后，发现确实有路可寻，目前也有了一些相对成熟的模块，于是便开始了动手实战，过程中发现这其中有很多坑，好在最终依靠google解决了，因此小记一番。<br><a id="more"></a></p>
+<h3 id="说在前面的话"><a href="#说在前面的话" class="headerlink" title="说在前面的话"></a>说在前面的话</h3><p>　　python语言虽然很万能，但用它来开发app还是显得有点不对路，因此用python开发的app应当是作为编码练习、或者自娱自乐所用，加上目前这方面的模块还不是特别成熟，bug比较多，总而言之，劝君莫轻入。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>　　利用python开发app需要用到python的一个模块–kivy，kivy是一个开源的，跨平台的Python开发框架，用于开发使用创新的应用程序。简而言之，这是一个python桌面程序开发框架（类似wxpython等模块），强大的是kivy支持linux、mac、windows、android、ios平台，这也是为什么开发app需要用到这个模块。<br>　　虽然kivy是跨平台的，但是想要在不同的平台使用python代码，还需要将python代码打包成对应平台的可执行程序，好在kivy项目下有个打包工具项目–buildozer，这是官方推荐的打包工具，因为相对比较简单，自动化程度高，其他项目比如：python-for-android也能起到类似的作用，这里不展开介绍。</p>
+<h3 id="搭建kivy开发环境"><a href="#搭建kivy开发环境" class="headerlink" title="搭建kivy开发环境"></a>搭建kivy开发环境</h3><p>需要在pc上安装kivy开发环境，这里演示下mac与linux下的安装过程。</p>
+<h2 id="install-kivy-for-mac"><a href="#install-kivy-for-mac" class="headerlink" title="install kivy for mac"></a>install kivy for mac</h2><p>安装一些依赖包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pkg-config sdl2 sdl2_image sdl2_ttf sdl2_mixer gstreamer</span><br></pre></td></tr></table></figure></p>
+<p>安装cython以及kivy：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install cython==0.25</span><br><span class="line">pip install kivy</span><br></pre></td></tr></table></figure></p>
+<p>如果安装kivy报错，则使用下面的方式安装kivy：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kivy/kivy</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p>
+<p>安装后测试：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$python</span><br><span class="line">Python <span class="number">2.7</span><span class="number">.10</span> (default, Jul <span class="number">15</span> <span class="number">2017</span>, <span class="number">17</span>:<span class="number">16</span>:<span class="number">57</span>)</span><br><span class="line">[GCC <span class="number">4.2</span><span class="number">.1</span> Compatible Apple LLVM <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.31</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> kivy</span><br><span class="line">[INFO   ] [Logger      ] Record log <span class="keyword">in</span> /Users/didi/.kivy/logs/kivy_18<span class="number">-05</span><span class="number">-08</span>_4.txt</span><br><span class="line">[INFO   ] [Kivy        ] v1<span class="number">.10</span><span class="number">.1</span>.dev0, git<span class="number">-5</span>f6c66e, <span class="number">20180507</span></span><br><span class="line">[INFO   ] [Python      ] v2<span class="number">.7</span><span class="number">.10</span> (default, Jul <span class="number">15</span> <span class="number">2017</span>, <span class="number">17</span>:<span class="number">16</span>:<span class="number">57</span>)</span><br><span class="line">[GCC <span class="number">4.2</span><span class="number">.1</span> Compatible Apple LLVM <span class="number">9.0</span><span class="number">.0</span> (clang<span class="number">-900.0</span><span class="number">.31</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>说明：导入kivy模块没有报错则说明安装成功。</p>
+<h2 id="install-kivy-for-centos7"><a href="#install-kivy-for-centos7" class="headerlink" title="install kivy for centos7"></a>install kivy for centos7</h2><p>先安装依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">yum install \</span><br><span class="line">    make \</span><br><span class="line">    mercurial \</span><br><span class="line">    automake \</span><br><span class="line">    gcc \</span><br><span class="line">    gcc-c++ \</span><br><span class="line">    SDL_ttf-devel \</span><br><span class="line">    SDL_mixer-devel \</span><br><span class="line">    khrplatform-devel \</span><br><span class="line">    mesa-libGLES \</span><br><span class="line">    mesa-libGLES-devel \</span><br><span class="line">    gstreamer-plugins-good \</span><br><span class="line">    gstreamer \</span><br><span class="line">    gstreamer-python \</span><br><span class="line">    mtdev-devel \</span><br><span class="line">    python-devel \</span><br><span class="line">    python-pip \</span><br><span class="line">    java-devel</span><br></pre></td></tr></table></figure></p>
+<p>安装cython以及kivy:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install Cython==0.20</span><br><span class="line">pip install kivy</span><br></pre></td></tr></table></figure></p>
+<p>centos安装kivy参考：<a href="https://kivy.org/docs/installation/installation-linux.html#using-software-packages" target="_blank" rel="noopener">https://kivy.org/docs/installation/installation-linux.html#using-software-packages</a></p>
+<p>说明：其他安装kivy方式可移步：<a href="https://kivy.org/#download（需要翻墙）" target="_blank" rel="noopener">https://kivy.org/#download（需要翻墙）</a></p>
+<h3 id="用kivy开发第一个python-app"><a href="#用kivy开发第一个python-app" class="headerlink" title="用kivy开发第一个python app"></a>用kivy开发第一个python app</h3><p>安装完kivy就可以开发app程序了，这里演示下hello-world程序，关于kivy更复杂的用法不是本文重点，后面再成文介绍。<br>1) 创建一个main.py文件，写入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloApp</span><span class="params">(App)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    HelloApp().run()</span><br></pre></td></tr></table></figure></p>
+<p>2)创建一个hello.kv文件，写入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Label:</span><br><span class="line">    text: <span class="string">'Hello, World! I am nMask'</span></span><br></pre></td></tr></table></figure></p>
+<p>简单说明：main.py是入口函数，定义了一个HelloApp类，该类继承kivy.app；hello.kv文件是kivy程序，相当于定义界面风格等，该文件命名规则为类名小写且去除app。</p>
+<h3 id="运行第一个python-app"><a href="#运行第一个python-app" class="headerlink" title="运行第一个python app"></a>运行第一个python app</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+<p>运行结果:<br><img src="/images/python1.png" alt=""></p>
+<h3 id="安装buildozer工具"><a href="#安装buildozer工具" class="headerlink" title="安装buildozer工具"></a>安装buildozer工具</h3><p>　　通过以上的编码，我创建了自己的第一个python app程序，该程序可以直接在mac、linux、windows平台下运行，那么如何让它在安卓或者苹果手机上运行呢？我们知道在安卓上运行，需要将其打包成apk安装程序，因此就需要用到前面提到过的buildozer工具，（buildozer工具可以打包kivy程序，支持android、ios等），buildozer的安装过程比较简单：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install buildozer</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用buildozer工具将kivy程序打包成apk"><a href="#使用buildozer工具将kivy程序打包成apk" class="headerlink" title="使用buildozer工具将kivy程序打包成apk"></a>使用buildozer工具将kivy程序打包成apk</h3><p>在python项目目录下运行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buildozer init</span><br></pre></td></tr></table></figure></p>
+<p>运行成功将会创建一个配置文件buildozer.spec，可以通过修改配置文件更改app的名称等，然后运行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buildozer android debug deploy run</span><br></pre></td></tr></table></figure></p>
+<p>运行以上命令将会生成跨平台的安装包，可适用安卓、ios等，如果用于安卓，则是利用python-for-android项目。</p>
+<p>在第一次运行以上命令的时候，会自动在系统中下载安卓sdk等必要文件，如下图。（过程需要翻墙，而且有很多依赖需要下载）<br><img src="/images/python2.png/" alt=""></p>
+<p>说明：这里只演示打包成apk文件，iso平台的可自行研究，参考文档：<a href="https://github.com/kivy/buildozer。" target="_blank" rel="noopener">https://github.com/kivy/buildozer。</a></p>
+<h3 id="python-apk程序测试"><a href="#python-apk程序测试" class="headerlink" title="python apk程序测试"></a>python apk程序测试</h3><p>如果以上步骤都运行成功的话，应该会在项目目录下的bin目录下生成一个apk文件，类似如下：<br><img src="/images/python3.png" alt=""></p>
+<p>然后将apk下载到安卓系统的手机上，安装即可，测试效果如下：<br><img src="/images/python4.png" alt=""></p>
+<p>打开app：<br><img src="/images/python5.png" alt=""></p>
+<h3 id="buildozer使用说明"><a href="#buildozer使用说明" class="headerlink" title="buildozer使用说明"></a>buildozer使用说明</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">    buildozer [--profile &lt;name&gt;] [--verbose] [target] &lt;command&gt;...</span><br><span class="line">    buildozer --version</span><br><span class="line">Available targets:</span><br><span class="line">  android        Android target, based on python-<span class="keyword">for</span>-android project</span><br><span class="line">  ios            iOS target, based on kivy-ios project</span><br><span class="line">  android_old    Android target, based on python-<span class="keyword">for</span>-android project (old toolchain)</span><br><span class="line">Global commands (without target):</span><br><span class="line">  distclean          Clean the whole Buildozer environment.</span><br><span class="line">  help               Show the Buildozer help.</span><br><span class="line">  init               Create a initial buildozer.spec <span class="keyword">in</span> the current directory</span><br><span class="line">  serve              Serve the bin directory via SimpleHTTPServer</span><br><span class="line">  setdefault         Set the default command to run when no arguments are given</span><br><span class="line">  version            Show the Buildozer version</span><br><span class="line">Target commands:</span><br><span class="line">  clean      Clean the target environment</span><br><span class="line">  update     Update the target dependencies</span><br><span class="line">  debug      Build the application <span class="keyword">in</span> debug mode</span><br><span class="line">  release    Build the application <span class="keyword">in</span> release mode</span><br><span class="line">  deploy     Deploy the application on the device</span><br><span class="line">  run        Run the application on the device</span><br><span class="line">  serve      Serve the bin directory via SimpleHTTPServer</span><br><span class="line">Target <span class="string">"android_old"</span> commands:</span><br><span class="line">  adb                Run adb <span class="keyword">from</span> the Android SDK. Args must come after --, <span class="keyword">or</span></span><br><span class="line">                     use --alias to make an alias</span><br><span class="line">  logcat             Show the log <span class="keyword">from</span> the device</span><br><span class="line">Target <span class="string">"ios"</span> commands:</span><br><span class="line">  list_identities    List the available identities to use <span class="keyword">for</span> signing.</span><br><span class="line">  xcode              Open the xcode project.</span><br><span class="line">Target <span class="string">"android"</span> commands:</span><br><span class="line">  adb                Run adb <span class="keyword">from</span> the Android SDK. Args must come after --, <span class="keyword">or</span></span><br><span class="line">                     use --alias to make an alias</span><br><span class="line">  logcat             Show the log <span class="keyword">from</span> the device</span><br><span class="line">  p4a                Run p4a commands. Args must come after --, <span class="keyword">or</span> use --alias</span><br><span class="line">                     to make an alias</span><br></pre></td></tr></table></figure>
+<h3 id="buildozer打包过程中的坑点"><a href="#buildozer打包过程中的坑点" class="headerlink" title="buildozer打包过程中的坑点"></a>buildozer打包过程中的坑点</h3><p>如果在打包过程中遇到报错，可以修改buildozer.spec配置文件中的log_level为2，然后重新运行，可以看具体的错误信息。</p>
+<h3 id="报错：You-might-have-missed-to-install-32bits-libs"><a href="#报错：You-might-have-missed-to-install-32bits-libs" class="headerlink" title="报错：You might have missed to install 32bits libs"></a>报错：You might have missed to install 32bits libs</h3><p>这个错是我在centos7上运行时报的错，大意是系统缺少了某些32位的依赖文件。<br>解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install --skip-broken glibc.i686 arts.i686 audiofile.i686 bzip2-libs.i686 cairo.i686 cyrus-sasl-lib.i686 dbus-libs.i686 directfb.i686 esound-libs.i686 fltk.i686 freeglut.i686 gtk2.i686 hal-libs.i686 imlib.i686 lcms-libs.i686 lesstif.i686 libacl.i686 libao.i686 libattr.i686 libcap.i686 libdrm.i686 libexif.i686 libgnomecanvas.i686 libICE.i686 libieee1284.i686 libsigc++20.i686 libSM.i686 libtool-ltdl.i686 libusb.i686 libwmf.i686 libwmf-lite.i686 libX11.i686 libXau.i686 libXaw.i686 libXcomposite.i686 libXdamage.i686 libXdmcp.i686 libXext.i686 libXfixes.i686 libxkbfile.i686 libxml2.i686 libXmu.i686 libXp.i686 libXpm.i686 libXScrnSaver.i686 libxslt.i686 libXt.i686 libXtst.i686 libXv.i686 libXxf86vm.i686 lzo.i686 mesa-libGL.i686 mesa-libGLU.i686 nas-libs.i686 nss_ldap.i686 cdk.i686 openldap.i686 pam.i686 popt.i686 pulseaudio-libs.i686 sane-backends-libs-gphoto2.i686 sane-backends-libs.i686 SDL.i686 svgalib.i686 unixODBC.i686 zlib.i686 compat-expat1.i686 compat-libstdc++-33.i686 openal-soft.i686 alsa-oss-libs.i686 redhat-lsb.i686 alsa-plugins-pulseaudio.i686 alsa-plugins-oss.i686 alsa-lib.i686 nspluginwrapper.i686 libXv.i686 libXScrnSaver.i686 qt.i686 qt-x11.i686 pulseaudio-libs.i686 pulseaudio-libs-glib2.i686 alsa-plugins-pulseaudio.i686 python-matplotli</span><br></pre></td></tr></table></figure></p>
+<p>参考：<a href="https://ask.fedoraproject.org/en/question/9556/how-do-i-install-32bit-libraries-on-a-64-bit-fedora/" target="_blank" rel="noopener">https://ask.fedoraproject.org/en/question/9556/how-do-i-install-32bit-libraries-on-a-64-bit-fedora/</a></p>
+<h2 id="报错：Error-compiling-Cython-file"><a href="#报错：Error-compiling-Cython-file" class="headerlink" title="报错：Error compiling Cython file"></a>报错：Error compiling Cython file</h2><p>这是在打包的最后一步，将apk文件copy到项目bin目录下时报的错，是buildozer的一个bug。<br>解决方案：<br>修改/usr/local/lib/python2.7/dist-packages/buildozer/tagets/android.py文件：<br>(1)在文件开头导入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from distutils.version import LooseVersion</span><br></pre></td></tr></table></figure></p>
+<p>(2) 将786行:XXX found how the apk name is really built from the title这一行以下的代码替换为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__sdk_dir = self.android_sdk_dir</span><br><span class="line">build_tools_versions = os.listdir(join(__sdk_dir, <span class="string">'build-tools'</span>))</span><br><span class="line">build_tools_versions = sorted(build_tools_versions, key=LooseVersion)</span><br><span class="line">build_tools_version = build_tools_versions[<span class="number">-1</span>]</span><br><span class="line">gradle_files = [<span class="string">"build.gradle"</span>, <span class="string">"gradle"</span>, <span class="string">"gradlew"</span>]</span><br><span class="line">is_gradle_build = any((exists(join(dist_dir, x)) <span class="keyword">for</span> x <span class="keyword">in</span> gradle_files)) <span class="keyword">and</span> build_tools_version &gt;= ’<span class="number">25.0</span><span class="string">'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="buildozer虚拟机"><a href="#buildozer虚拟机" class="headerlink" title="buildozer虚拟机"></a>buildozer虚拟机</h3><p>　　kivy官方推出了一个buildozer虚拟机镜像，已经安装好了buildozer以及一些依赖文件，为buildozer打包测试提供平台。由于之前我在mac上利用buildozer打包一直报错，后来换成centos也依然没有成功，因此便下载了此虚拟机，测试效果如下：<br><img src="/images/python6.png" alt=""><br>虚拟机下载地址：<a href="http://txzone.net/files/torrents/kivy-buildozer-vm-2.0.zip" target="_blank" rel="noopener">http://txzone.net/files/torrents/kivy-buildozer-vm-2.0.zip</a></p>
+<p>说明：对于无法解决依赖问题的朋友，可以使用此虚拟机进行程序打包，开发环境还是推荐用自己的本机。</p>
+<h3 id="kivy开发实例"><a href="#kivy开发实例" class="headerlink" title="kivy开发实例"></a>kivy开发实例</h3><p>　　因为本文重点在于介绍如何利用kivy+buildozer开发一款python app，因此对于kivy的开发过程，以及app功能进行了最简化。想要学习如何开发更复杂的app，可参考：<a href="https://muxuezi.github.io/posts/kivy-perface.html#" target="_blank" rel="noopener">https://muxuezi.github.io/posts/kivy-perface.html#</a></p>
+<p>～！～ 折腾python使我快乐，……，想想还是滚回去学java吧 ～！～</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/微信.jpg" alt="小金 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/支付宝.jpg" alt="小金 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+
+
+      </div>
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+      </div>
+
+    <footer class="post-footer">
+    <div>
+      
+       
+    <ul class="post-copyright">
+      <li class="post-copyright-author">
+          <strong>本文作者：</strong>小金
+      </li>
+      <li class="post-copyright-link">
+        <strong>本文链接：</strong>
+        <a href="/2019/02/23/python开发app实战/" title="利用python开发app实战">2019/02/23/python开发app实战/</a>
+      </li>
+      <li class="post-copyright-license">
+        <strong>版权： </strong>
+        本站文章均采用 <a href="" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+      </li>
+    </ul>
+    
+     </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/11/title/" rel="next" title="title">
+                <i class="fa fa-chevron-left"></i> title
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjE5NC8xODc0MQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/图.gif" alt="小金">
+            
+              <p class="site-author-name" itemprop="name">小金</p>
+              <p class="site-description motion-element" itemprop="description">一路步履不停，却总是慢一拍。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaojinyou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_42543242" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说在前面的话"><span class="nav-number">1.</span> <span class="nav-text">说在前面的话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建kivy开发环境"><span class="nav-number">3.</span> <span class="nav-text">搭建kivy开发环境</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#install-kivy-for-mac"><span class="nav-number"></span> <span class="nav-text">install kivy for mac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-kivy-for-centos7"><span class="nav-number"></span> <span class="nav-text">install kivy for centos7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用kivy开发第一个python-app"><span class="nav-number">1.</span> <span class="nav-text">用kivy开发第一个python app</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行第一个python-app"><span class="nav-number">2.</span> <span class="nav-text">运行第一个python app</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装buildozer工具"><span class="nav-number">3.</span> <span class="nav-text">安装buildozer工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用buildozer工具将kivy程序打包成apk"><span class="nav-number">4.</span> <span class="nav-text">使用buildozer工具将kivy程序打包成apk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-apk程序测试"><span class="nav-number">5.</span> <span class="nav-text">python apk程序测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buildozer使用说明"><span class="nav-number">6.</span> <span class="nav-text">buildozer使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buildozer打包过程中的坑点"><span class="nav-number">7.</span> <span class="nav-text">buildozer打包过程中的坑点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错：You-might-have-missed-to-install-32bits-libs"><span class="nav-number">8.</span> <span class="nav-text">报错：You might have missed to install 32bits libs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错：Error-compiling-Cython-file"><span class="nav-number"></span> <span class="nav-text">报错：Error compiling Cython file</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#buildozer虚拟机"><span class="nav-number">1.</span> <span class="nav-text">buildozer虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kivy开发实例"><span class="nav-number">2.</span> <span class="nav-text">kivy开发实例</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小金</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="">小金</a> 个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">小金 &mdash; <a class="theme-link" target="_blank" href="">.</a> v5.1.4</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":120,"height":190},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
