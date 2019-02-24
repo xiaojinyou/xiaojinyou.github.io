@@ -8,7 +8,7 @@
   <entry>
     <title><![CDATA[博客文章样式写法]]></title>
     <url>%2F2019%2F01%2F11%2Ftitle%2F</url>
-    <content type="text"><![CDATA[这1秒开始相信,幸福就会靠近 当创建博客时，就会以这种格式生成Markdown文件，如这篇博客的文件名就生成 2019-01-11-blog.md 这种形式。其中相关变量说明如下表： 创建1hexo new xxxx (xxxx这里指要创建的文章名字) 生成路径:source/_posts/xxx]]></content>
+    <content type="text"><![CDATA[这1秒开始相信,幸福就会靠近 当创建博客时，就会以这种格式生成Markdown文件，如这篇博客的文件名就生成 2019-01-11-blog.md 这种形式。其中相关变量说明如下表：]]></content>
       <tags>
         <tag>categories</tag>
       </tags>
