@@ -1,7 +1,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
-    autoplay: true,   //自动播放
+    
     listFolded:false, //列表默认折叠
     theme: '#c11bfa', //主题色
     preload: 'auto', //预加载，可选值: 'none', 'metadata', 'auto'
